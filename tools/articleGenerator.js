@@ -15,6 +15,8 @@ folders.pop();
 folders.pop();//base dir
 const DIST_PATH = folders.join('/') + '/data/';
 const DIST_FIlENAME = 'titles.json';
+const HTML_PATH = folders.join('/') + '/details/';
+const TEMPLATE = HTML_PATH + 'template.html';
 
 var events = require('events');
 var emitter = new events.EventEmitter();
@@ -98,6 +100,7 @@ emitter.on('read_from_console',function(){
 	rl.on('close', function(){
 		console.log('done');
 		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
+		//TODO generate template html
 	});
 });
 emitter.on('dump_to_file', function(dir, data){

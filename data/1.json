@@ -1,1 +1,1 @@
-[{"No":1,"title":"123456","date":"7/20/2016","content":"owejfoiwejfoiwejfoiwjefiojweifjoweijfiowjfoiwej"}]
+[{"No":1,"title":"退出ssh死掉的状态","date":"7/20/2016","content":"有时候ssh到服务器，一段时间没操作，或者网络卡了一下，ssh界面就卡住了，怎么^C，^Z都出不去。这个时候很神奇的输入 \"~.\" 就关闭了</p><p>实在不行就找出pid再kill掉吧。。。"}]
