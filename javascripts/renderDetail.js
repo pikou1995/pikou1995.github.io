@@ -1,4 +1,4 @@
-const ERROR_URL = 'data/500.json';
+const ERROR_URL = '../data/500.json';
 
 
 
