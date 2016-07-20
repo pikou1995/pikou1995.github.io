@@ -19,16 +19,24 @@ const DIST_FIlENAME = 'titles.json';
 var events = require('events');
 var emitter = new events.EventEmitter();
 var fs = require('fs');
+var date = new Date().toLocaleDateString();
 var titles = [{
 	"title" : "How to use",
 	"date" : "2016/7/19",
-	"content" : "node"
+	"src" : "000"
 }];
+var details = [{
+	"No" : "0",
+	"title" : "How to use",
+	"date" : "2016/7/19",
+	"content" : "node"
+}]
 
 fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
 	if(error){
 		//console.error(error);
 		console.error('opps! No data found!');
+		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
 		emitter.emit('read_from_console');
 		return;
 	};
@@ -66,7 +74,10 @@ emitter.on('read_from_console',function(){
 		if(title){
 			titles[titles.length] = {};	
 			titles[titles.length - 1]['title'] = title;	
+			titles[titles.length - 1]['date'] = date;
+			titles[titles.length - 1]['src'] = titles.length - 1;
 			console.log(titles);
+			emitter.emit('dump_to_file', DIST_PATH + DIST_FIlENAME,JSON.stringify(titles));
 			console.log('please input content,enter "EOF" to finish')
 			return;
 		};
@@ -75,7 +86,10 @@ emitter.on('read_from_console',function(){
 	var content = ''
 	rl.on('line', function(line){
 		if(line == 'EOF'){
-			titles[titles.length - 1]['content'] = content;
+			details[0]['No'] = titles.length - 1;
+			details[0]['title'] = titles[titles.length - 1]['title'] ;
+			details[0]['date'] = date;
+			details[0]['content'] = content;
 			rl.close();
 		};
 		content += line;
@@ -83,21 +97,21 @@ emitter.on('read_from_console',function(){
 	});
 	rl.on('close', function(){
 		console.log('done');
-		emitter.emit('dump_to_file');
+		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
 	});
 });
-emitter.on('dump_to_file', function(){
-	fs.open( DIST_PATH + DIST_FIlENAME, 'w', function(error, fd){
+emitter.on('dump_to_file', function(dir, data){
+	fs.open( dir, 'w', function(error, fd){
 		if(error){
 			console.error(error);
-			console.error('sorry, save failed! The json data are as follows, you can manually copy and overwrite data/titles.json')
-			console.log('----------------Json data-------------------');
-			console.log(titles);
-			console.log('----------------Json data end---------------');
+			console.error('sorry, save failed! The data is as follows, you can manually copy and overwrite data/titles.json')
+			console.log('----------------Data-------------------');
+			console.log(data);
+			console.log('----------------Data end---------------');
 			return;
 		};
-		fs.writeSync(fd, JSON.stringify(titles));
-		console.log('data has saved!');
+		fs.writeSync(fd, data);
+		//console.log('data has saved!');
 		fs.close(fd, function(error){
 			if(error){
 				console.error(error);
