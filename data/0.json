@@ -1,1 +1,1 @@
-[{"No":"0","title":"How to use","date":"2016/7/19","content":"node"}]
+[{"No":"0","title":"How to use","date":"7/19/2016","content": "node tools/articleGenerator.js to create data</p><p>cp details/template.html details/${No}.html, change the Script tag in the bottom,replace ${No} with lastest filename in data(eg. data/0.json --> details/0.html --> &lt;script&gt;init('../data/0.json')&lt;/script&gt;"}]
