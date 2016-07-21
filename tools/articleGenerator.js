@@ -25,13 +25,13 @@ var date = new Date().toLocaleDateString();
 var titles = [{
 	"title" : "How to use",
 	"date" : "2016/7/19",
-	"src" : "000"
+	"src" : "0"
 }];
 var details = [{
 	"No" : "0",
 	"title" : "How to use",
-	"date" : "2016/7/19",
-	"content" : "node"
+	"date" : "7/19/2016",
+	"content" : "node tools/articleGenerator.js to create data</p><p>cp details/template.html details/${No}.html, change the Script tag in the bottom,replace ${No} with lastest filename in data(eg. data/0.json --> details/0.html --> <script>init('../data/0.json')</script>"
 }]
 
 fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
@@ -100,6 +100,7 @@ emitter.on('read_from_console',function(){
 	rl.on('close', function(){
 		console.log('done');
 		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
+		console.log('Please create "'+details[0].No+'.html" in details manually. A auto generator might add in near feature');
 		//TODO generate template html
 	});
 });
