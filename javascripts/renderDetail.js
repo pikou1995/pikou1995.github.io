@@ -15,7 +15,7 @@ function init(url){
 };
 
 function renderDetail(detail){
-	let innerHtml = '<h3>'+detail[0].title+'</h3>' + 
+	var innerHtml = '<h3>'+detail[0].title+'</h3>' + 
 		'<h5 class="date">'+ detail[0].date +'</h5>'+
 		'<p>'+detail[0].content+'</p';
 	$('#main_content').html(innerHtml);

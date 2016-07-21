@@ -17,10 +17,10 @@ window.onload = function(){
 };
 
 function renderTitles(titles){
-	for(let src = 0; src < titles.length; src++){
-		let innerHtml = '<a href="details/template.html?No='+src+'"><h3>'+titles[src].title+'</h3></a>' + 
+	for(var src = 0; src < titles.length; src++){
+		var innerHtml = '<a href="details/template.html?No='+src+'"><h3>'+titles[src].title+'</h3></a>' + 
 			'<h5 class="date">'+ titles[src].date +'</h5>'
-		let item = $('<div></div>');
+		var item = $('<div></div>');
 		item.html(innerHtml);
 		$('#main_content').append(item);
 	}
