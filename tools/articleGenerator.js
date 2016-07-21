@@ -75,11 +75,10 @@ emitter.on('read_from_console',function(){
 	rl.question('title:', function(title){
 		if(title){
 			titles[titles.length] = {};	
-			titles[titles.length - 1]['title'] = title;	
+			titles[titles.length - 1]['title'] = html_escape_string(title);
 			titles[titles.length - 1]['date'] = date;
 			titles[titles.length - 1]['src'] = titles.length - 1;
 			console.log(titles);
-			emitter.emit('dump_to_file', DIST_PATH + DIST_FIlENAME,JSON.stringify(titles));
 			console.log('please input content,enter "EOF" to finish')
 			return;
 		};
@@ -91,16 +90,16 @@ emitter.on('read_from_console',function(){
 			details[0]['No'] = titles.length - 1;
 			details[0]['title'] = titles[titles.length - 1]['title'] ;
 			details[0]['date'] = date;
-			details[0]['content'] = content;
+			details[0]['content'] = html_escape_string(content);
 			rl.close();
 		};
-		content += line;
+		content += '\n' + line;
 		//console.log(content);
 	});
 	rl.on('close', function(){
 		console.log('done');
+		emitter.emit('dump_to_file', DIST_PATH + DIST_FIlENAME,JSON.stringify(titles));
 		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
-		console.log('Please create "'+details[0].No+'.html" in details manually. A auto generator might add in near feature');
 		//TODO generate template html
 	});
 });
@@ -123,4 +122,8 @@ emitter.on('dump_to_file', function(dir, data){
 		});
 	});
 });
+
+function html_escape_string(str){
+	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'</p><p>');
+}
 
