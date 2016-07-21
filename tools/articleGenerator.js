@@ -32,7 +32,7 @@ var details = [{
 	"title" : "How to use",
 	"date" : "7/19/2016",
 	"content" : "node tools/articleGenerator.js to create data"
-}]
+}];
 
 fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
 	if(error){
@@ -41,7 +41,7 @@ fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
 		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
 		emitter.emit('read_from_console');
 		return;
-	};
+	}
 	var data = new Buffer(1024*1024);
 	console.log('read');
 	fs.read(fd, data, 0, data.length, 0, function(error, bytesRead, data){
@@ -75,24 +75,24 @@ emitter.on('read_from_console',function(){
 	rl.question('title:', function(title){
 		if(title){
 			titles[titles.length] = {};	
-			titles[titles.length - 1]['title'] = html_escape_string(title);
-			titles[titles.length - 1]['date'] = date;
-			titles[titles.length - 1]['src'] = titles.length - 1;
+			titles[titles.length - 1].title = html_escape_string(title);
+			titles[titles.length - 1].date = date;
+			titles[titles.length - 1].src = titles.length - 1;
 			console.log(titles);
-			console.log('please input content,enter "EOF" to finish')
+			console.log('please input content,enter "EOF" to finish');
 			return;
-		};
+		}
 		console.log('title is required');
 	});
-	var content = ''
+	var content = '';
 	rl.on('line', function(line){
 		if(line == 'EOF'){
-			details[0]['No'] = titles.length - 1;
-			details[0]['title'] = titles[titles.length - 1]['title'] ;
-			details[0]['date'] = date;
-			details[0]['content'] = html_escape_string(content);
+			details[0].No = titles.length - 1;
+			details[0].title = titles[titles.length - 1].title;
+			details[0].date = date;
+			details[0].content = html_escape_string(content);
 			rl.close();
-		};
+		}
 		content += '\n' + line;
 		//console.log(content);
 	});
@@ -107,12 +107,12 @@ emitter.on('dump_to_file', function(dir, data){
 	fs.open( dir, 'w', function(error, fd){
 		if(error){
 			console.error(error);
-			console.error('sorry, save failed! The data is as follows, you can manually copy and overwrite data/titles.json')
+			console.error('sorry, save failed! The data is as follows, you can manually copy and overwrite data/titles.json');
 			console.log('----------------Data-------------------');
 			console.log(data);
 			console.log('----------------Data end---------------');
 			return;
-		};
+		}
 		fs.writeSync(fd, data);
 		//console.log('data has saved!');
 		fs.close(fd, function(error){
