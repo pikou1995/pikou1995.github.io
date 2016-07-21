@@ -31,7 +31,7 @@ var details = [{
 	"No" : "0",
 	"title" : "How to use",
 	"date" : "7/19/2016",
-	"content" : "node tools/articleGenerator.js to create data</p><p>cp details/template.html details/${No}.html, change the Script tag in the bottom,replace ${No} with lastest filename in data(eg. data/0.json --> details/0.html --> <script>init('../data/0.json')</script>"
+	"content" : "node tools/articleGenerator.js to create data"
 }]
 
 fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
