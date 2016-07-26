@@ -13,10 +13,10 @@ This program is help to generate article data(json type) in ${pikou.github.io}/d
 var folders =  __filename.split('/');
 folders.pop();
 folders.pop();//base dir
-const DIST_PATH = folders.join('/') + '/data/';
-const DIST_FIlENAME = 'titles.json';
-const HTML_PATH = folders.join('/') + '/details/';
-const TEMPLATE = HTML_PATH + 'template.html';
+var DIST_PATH = folders.join('/') + '/data/';
+var DIST_FIlENAME = 'titles.json';
+var HTML_PATH = folders.join('/') + '/details/';
+var TEMPLATE = HTML_PATH + 'template.html';
 
 var events = require('events');
 var emitter = new events.EventEmitter();
