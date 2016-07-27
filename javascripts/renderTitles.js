@@ -18,7 +18,7 @@ window.onload = function(){
 
 function renderTitles(titles){
 	for(var src = 0; src < titles.length; src++){
-		var innerHtml = '<a href="details/template.html?No='+src+'"><h3>'+titles[src].title+'</h3></a>' + '<small>'+ titles[src].date +'</small>';
+		var innerHtml = '<a href="details/template.html?No='+src+'"><h3>'+titles[src].title+'<small class="pull-right">'+ titles[src].date +'</small></h3></a>';
 		var item = $('<div></div>');
 		item.html(innerHtml);
 		$('#main_content').append(item);
