@@ -8,7 +8,9 @@ window.onload = function(){
 		type : 'GET',
 		url : TITLES_URL,
 		dataType : 'JSON',
-		success : function(data){renderTitles(data);},
+		success : function(data){
+            $('#main_content').html('');
+            renderTitles(data);},
 		error : function(err){
 			alert(err);
 			renderTitles(titles);
