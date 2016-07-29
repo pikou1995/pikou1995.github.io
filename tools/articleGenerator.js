@@ -9,13 +9,19 @@ usage: node articleGenerator.js
 This program is help to generate article data(json type) in ${pikou.github.io}/data/
 ****/
 
+//judge which file system
+var _split = '/';
+var os = require('os');
+if(os.platform() == 'win32')
+	_split = '\\';
 
-var folders =  __filename.split('/');
+
+var folders =  __filename.split(_split);
 folders.pop();
 folders.pop();//base dir
-var DIST_PATH = folders.join('/') + '/data/';
+var DIST_PATH = folders.join(_split) + _split + 'data' + _split;
 var DIST_FIlENAME = 'titles.json';
-var HTML_PATH = folders.join('/') + '/details/';
+var HTML_PATH = folders.join(_split) + _split + 'details' + _split;
 var TEMPLATE = HTML_PATH + 'template.html';
 
 var events = require('events');
