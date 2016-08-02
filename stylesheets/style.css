@@ -1,0 +1,12 @@
+#titles article{
+    border-bottom: #ccc solid 1px;
+}
+@media screen and (max-width: 820px){
+    #titles article{
+        border-bottom: #888 dotted 1px;
+    }
+    #titles article h3{
+        color: #444;
+        font-size: 14px;
+    }
+}
