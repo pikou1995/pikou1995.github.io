@@ -1,0 +1,8 @@
+[
+    {
+        "No": 9,
+        "title": "React.js渲染button,label等时相邻间距很小的问题",
+        "date": "2016-08-18",
+        "content": "<p>不得不说这是个很简单很基础的问题，但我在上面搞了将近一个小时才弄清楚，这都是平时写习惯了，想当然了。我想也许很多人都不清楚，所以我抱着不要脸的心态记录下来，希望对大家有帮助。</p><p>我在写html的时候，习惯按这样的格式</p><p>&lt;button&gt;test&lt;/button&gt;</p><p>&lt;button&gt;test&lt;/button&gt;</p><p>然而效果是这样的：</p><p><button>test</button>\n<button>test</button></p><p>中间有很明显的间距，于是我一直想当然的认为button默认是有间距的。直到我遇到这样</p><p><img src=\"../images/9/1.png\"></p><p>尼玛为什么这么近！！！我代码这么写没问题啊，原型页面我都测试过了的</p><p><img src=\"../images/9/2.png\"></p><p>我从怀疑是react在搞鬼，到怀疑js的问题，于是搜索半天的一个相似的问题都没有。直到我这样</p><p>&lt;button&gt;test&lt;/button&gt;&lt;button&gt;test&lt;/button&gt;</p><p><button>test</button><button>test</button></p><p>突然恍然大悟。。原来是react在渲染的时候自动把回车换行过滤掉了，终于找到原因了。</p><p><strong>解决方法：</strong></p><p>1.在button之间加&amp;nbsp;或者{'\\n'}</p><p>2.直接使用样式margin什么的</p>"
+    }
+]
