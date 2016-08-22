@@ -31,13 +31,13 @@ var date = new Date().toLocaleDateString();
 var titles = [{
 	"title" : "How to use",
 	"date" : "2016/7/19",
-	"src" : "0"
+	"src" : 0
 }];
 var details = [{
-	"No" : "0",
+	"No" : 0,
 	"title" : "How to use",
-	"date" : "7/19/2016",
-	"content" : "node tools/articleGenerator.js to create data"
+	"date" : "2016/7/19",
+	"content" : "<p>node tools/articleGenerator.js to create data</p>"
 }];
 
 fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
@@ -84,7 +84,7 @@ emitter.on('read_from_console',function(){
 			titles[titles.length - 1].title = html_escape_string(title);
 			titles[titles.length - 1].date = date;
 			titles[titles.length - 1].src = titles.length - 1;
-			console.log(titles);
+			//console.log(titles);
 			console.log('please input content,enter "EOF" to finish');
 			return;
 		}
@@ -99,7 +99,10 @@ emitter.on('read_from_console',function(){
 			details[0].content = html_escape_string(content);
 			rl.close();
 		}
-		content += '\n' + line;
+		if(content)
+			content += '\n' + line;
+		else
+			content += line;
 		//console.log(content);
 	});
 	rl.on('close', function(){
@@ -130,6 +133,6 @@ emitter.on('dump_to_file', function(dir, data){
 });
 
 function html_escape_string(str){
-	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'</p><p>');
+	return '<p>' + str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'</p><p>') + '</p>';
 }
 

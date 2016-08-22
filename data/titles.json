@@ -2,7 +2,7 @@
     {
         "title": "How to use",
         "date": "7/19/2016",
-        "src": "0"
+        "src": 0
     },
     {
         "title": "退出ssh死掉的状态",
@@ -48,5 +48,10 @@
         "title": "React.js渲染button,label等时相邻间距很小的问题",
         "date": "2016-08-18",
         "src": 9
+    },
+    {
+        "title": "本博客中关于使用markdown插件marked.js",
+        "date": "2016-08-22",
+        "src": 10
     }
 ]

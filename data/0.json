@@ -1,1 +1,8 @@
-[{"No":"0","title":"How to use","date":"7/19/2016","content":"node tools/articleGenerator.js to create data"}]
+[
+    {
+        "No": "0",
+        "title": "How to use",
+        "date": "7/19/2016",
+        "content": "<p>node tools/articleGenerator.js to create data</p>"
+    }
+]
