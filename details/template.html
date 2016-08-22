@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset='utf-8'>
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <meta name="description" content="Pikou1995.GitHub.io : ">
-
-        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
-        <link rel="shortcut icon" href="../favicon.ico" />
-
         <title>Pikou's Blog</title>
-        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="../javascripts/renderDetail.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pikou1995.GitHub.io">
+        <link rel="stylesheet" href="https://staticfile.qnssl.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://staticfile.qnssl.com/highlight.js/9.0.0/styles/atelier-lakeside.light.min.css">
+        <link rel="stylesheet" href="../stylesheets/style.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <style>
+/*            body{
+                background: #f2f2f2;
+            }*/
+            article{
+                padding: 30px;
+                background: #fff;
+            }
+            article p{
+                text-indent: 2em;
+            }
+        </style>
     </head>
     <body>
-        <!-- HEADER -->
-        <div id="header_wrap" class="outer">
-            <header class="inner">
-                <a id="forkme_banner" href="https://github.com/pikou1995">View on GitHub</a>
+        <header class="navbar navbar-static-top navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">Pikou's Blog</a>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button class="btn btn-primary" onclick="location.href='https://github.com/pikou1995'">View on GitHub &nbsp; <img src="../images/blacktocat.png"></button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section id="details">
+            <div class="container">
+                <div class="row">
+                    <article id="main_content">
+                        
+                    </article>
+                    <article id="md-content">
 
-                <h1 id="project_title">Pikou's Blog</h1>
-                <h2 id="project_tagline">Hello World!</h2>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <footer>
 
-            </header>
-        </div>
-        <!-- MAIN CONTENT -->
-        <div id="main_content_wrap" class="outer">
-            <section id="main_content" class="inner">
-                <h1>Loading......</h1>
-            </section>
-        </div>
-        <!-- FOOTER  -->
-        <div id="footer_wrap" class="outer">
-            <footer class="inner">
-                <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-                <p>Modified by <a href="https://pikou1995.github.io">Pikou</a></p>
-            </footer>
-        </div>
+        </footer>
+        <script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
+        <script src="https://staticfile.qnssl.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://staticfile.qnssl.com/highlight.js/9.0.0/highlight.min.js"></script>
+        <script src="https://staticfile.qnssl.com/marked/0.3.5/marked.min.js"></script>
+        <script>
+            marked.setOptions({
+                highlight: function (code) {
+                    return hljs.highlightAuto(code).value;//hljs是highlight.js的handle
+                }
+            });
+        </script>
+        <script src="../javascripts/renderDetail.js"></script>
     </body>
 </html>

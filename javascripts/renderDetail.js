@@ -14,10 +14,24 @@ function init(url){
 	});
 }
 
+function renderMarkdown(selector, file){
+	$.ajax({
+		type : 'GET',
+		url : '../markdowns/' + GetQueryString('No') + '/' + file,
+		dataType : 'text',
+		success : function(data){
+			$(selector).html(marked(data));
+		}.bind(this),
+		error : function(err){
+			$(selector).html('<p style="color: orange;">markdown file not found!</p>');
+		}
+	});
+	
+}
 function renderDetail(detail){
-	var innerHtml = '<h3>'+detail[0].title+'</h3>' + 
-		'<h5 class="date">'+ detail[0].date +'</h5>'+
-		'<p>'+detail[0].content+'</p>';
+	var innerHtml = '<h1 class="text-center">'+detail[0].title+'</h1>' + 
+		'<h6 class="text-center text-muted">'+ detail[0].date +'</h6>'+
+		detail[0].content;
 	$('#main_content').html(innerHtml);
 }
 
@@ -27,8 +41,8 @@ function GetQueryString(parameter){
 	if(value !== null) return unescape(value[2]);
 	return null;
 }
+
 window.onload = function(){
-	if(GetQueryString('No') === null)
-		init(ERROR_URL);
-	init('../data/'+GetQueryString('No')+'.json');
+	console.log(1);
+	init('../data/' + (GetQueryString('No') || 404) + '.json');
 };
