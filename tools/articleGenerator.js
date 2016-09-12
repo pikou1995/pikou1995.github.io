@@ -9,24 +9,17 @@ usage: node articleGenerator.js
 This program is help to generate article data(json type) in ${pikou.github.io}/data/
 ****/
 
-//judge which file system
-var _split = '/';
-var os = require('os');
-if(os.platform() == 'win32')
-	_split = '\\';
-
-
-var folders =  __filename.split(_split);
-folders.pop();
-folders.pop();//base dir
-var DIST_PATH = folders.join(_split) + _split + 'data' + _split;
-var DIST_FIlENAME = 'titles.json';
-var HTML_PATH = folders.join(_split) + _split + 'details' + _split;
-var TEMPLATE = HTML_PATH + 'template.html';
-
+var path = require("path")
 var events = require('events');
 var emitter = new events.EventEmitter();
 var fs = require('fs');
+
+var BASE_DIR = path.join(__dirname, '..')
+var DIST_PATH = path.join(BASE_DIR, 'data')
+var DIST_FIlENAME = 'titles.json';
+var HTML_PATH = path.join(BASE_DIR, 'details')
+var TEMPLATE = path.join(HTML_PATH, 'template.html')
+
 var date = new Date().toLocaleDateString();
 var titles = [{
 	"title" : "How to use",
@@ -40,11 +33,11 @@ var details = [{
 	"content" : "<p>node tools/articleGenerator.js to create data</p>"
 }];
 
-fs.open( DIST_PATH + DIST_FIlENAME, 'r', function(error, fd){
+fs.open( path.join(DIST_PATH, DIST_FIlENAME), 'r', function(error, fd){
 	if(error){
 		//console.error(error);
 		console.error('opps! No data found!');
-		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
+		emitter.emit('dump_to_file', path.join(DIST_PATH, details[0].No + '.json'), JSON.stringify(details));
 		emitter.emit('read_from_console');
 		return;
 	}
@@ -107,8 +100,8 @@ emitter.on('read_from_console',function(){
 	});
 	rl.on('close', function(){
 		console.log('done');
-		emitter.emit('dump_to_file', DIST_PATH + DIST_FIlENAME,JSON.stringify(titles));
-		emitter.emit('dump_to_file', DIST_PATH + details[0].No + '.json', JSON.stringify(details));
+		emitter.emit('dump_to_file', path.join(DIST_PATH, DIST_FIlENAME),JSON.stringify(titles));
+		emitter.emit('dump_to_file', path.join(DIST_PATH, details[0].No + '.json'), JSON.stringify(details));
 		//TODO generate template html
 	});
 });
