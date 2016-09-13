@@ -89,7 +89,7 @@ emitter.on('read_from_console',function(){
 			details[0].No = titles.length - 1;
 			details[0].title = titles[titles.length - 1].title;
 			details[0].date = date;
-			details[0].content = html_escape_string(content);
+			details[0].content = '<p>' + html_escape_string(content) + '</p>';
 			rl.close();
 		}
 		if(content)
@@ -126,6 +126,6 @@ emitter.on('dump_to_file', function(dir, data){
 });
 
 function html_escape_string(str){
-	return '<p>' + str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'</p><p>') + '</p>';
+	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'</p><p>');
 }
 
