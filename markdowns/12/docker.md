@@ -23,8 +23,7 @@ nameserver 10.242.197.247
 nameserver 114.114.114.114
 nameserver 114.114.114.115
 ```
-
-阿里云有提供docker镜像加速服务
+第二个就是官方源太慢了，阿里云有提供docker镜像加速服务
 阿里云Hub服务管理后台：```http://console.d.aliyun.com/index2.html```
 在这里开通容器Hub服务，就可以管理您自己的Docker仓库以及仓库镜像。
 我还按照官方教程在服务器上登录了一下。
