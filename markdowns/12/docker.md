@@ -46,3 +46,19 @@ OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=https://xxxxx
 ```
 然后```service docker restart```
 这个时候```docker pull```会非常快
+
+
+> docker常用命令
+Dockerfile
+```
+FROM        registry.cn-hangzhou.aliyuncs.com/xxxxxxxxxx/xxxxxxxx:v1
+MAINTAINER  Pikou "pikou1995@outlook.com"
+
+EXPOSE  80
+CMD    /etc/init.d/apache2 start && tail -f /var/log/apache2/error.log
+```
+
+连接终端
+```
+docker exec -it laravel /bin/bash
+```
