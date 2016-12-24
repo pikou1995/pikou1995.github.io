@@ -146,7 +146,7 @@ allow_sign_up = false
 启动服务
 
 ```bash
-service grafana.service start
+service grafana-server start
 ```
 
 登录3000端口,账号密码都是admin,然后改密码,自己在网页上多点点就找到了.
