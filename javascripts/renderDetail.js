@@ -20,7 +20,9 @@ function renderMarkdown(selector, file){
 		url : '../markdowns/' + GetQueryString('No') + '/' + file,
 		dataType : 'text',
 		success : function(data){
-			$(selector).html(marked(data));
+			var html = marked(data);
+			$(selector).html(html);
+			$(selector + ' img').attr('class', 'img-responsive');
 		}.bind(this),
 		error : function(err){
 			$(selector).html('<p style="color: orange;">markdown file not found!</p>');
