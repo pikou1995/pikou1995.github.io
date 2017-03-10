@@ -100,8 +100,8 @@ emitter.on('read_from_console',function(){
 	});
 	rl.on('close', function(){
 		console.log('done');
-		emitter.emit('dump_to_file', path.join(DIST_PATH, DIST_FIlENAME),JSON.stringify(titles));
-		emitter.emit('dump_to_file', path.join(DIST_PATH, details[0].No + '.json'), JSON.stringify(details));
+		emitter.emit('dump_to_file', path.join(DIST_PATH, DIST_FIlENAME),JSON.stringify(titles, null, 2));
+		emitter.emit('dump_to_file', path.join(DIST_PATH, details[0].No + '.json'), JSON.stringify(details, null, 2));
 		//TODO generate template html
 	});
 });
