@@ -48,12 +48,10 @@ set encoding=utf-8
     "editor.renderWhitespace": "all",
     "editor.scrollBeyondLastLine": false,
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 150,
+    "editor.wordWrapColumn": 120,
     "editor.tabSize": 2,
-    "editor.minimap.enabled": true,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "vs-seti",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.commandsToSkipShell": [
       "editor.action.toggleTabFocusMode",
       "workbench.action.debug.continue",
@@ -100,9 +98,19 @@ set encoding=utf-8
       "**/vendor/**": true
     },
     "html.format.unformatted": "",
-    "php.validate.executablePath": "D:\\wochuang\\php\\php.exe",
     "files.associations": {
       "*.blade.php": "html"
-    }
+    },
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors" : {
+        "normal": "#007acc",
+        "insert": "#5f0000",
+        "visual": "#5f00af",
+        "visualline": "#005f87",
+        "visualblock": "#86592d",
+        "replace": "#000000"
+    },
+    "vim.easymotion": true,
+    "vim.leader": ","
   }
 ```
