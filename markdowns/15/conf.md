@@ -103,14 +103,18 @@ set encoding=utf-8
     },
     "vim.statusBarColorControl": true,
     "vim.statusBarColors" : {
-        "normal": "#007acc",
-        "insert": "#5f0000",
-        "visual": "#5f00af",
-        "visualline": "#005f87",
-        "visualblock": "#86592d",
-        "replace": "#000000"
+      "normal": "#007acc",
+      "insert": "#5f0000",
+      "visual": "#5f00af",
+      "visualline": "#005f87",
+      "visualblock": "#86592d",
+      "replace": "#000000"
     },
     "vim.easymotion": true,
-    "vim.leader": ","
+    "vim.leader": ",",
+    "vim.handleKeys": {
+      "<C-k>": false,
+      "<C-,>": false
+    }
   }
 ```
