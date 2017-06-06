@@ -114,7 +114,9 @@ set encoding=utf-8
     "vim.leader": ",",
     "vim.handleKeys": {
       "<C-k>": false,
-      "<C-,>": false
+      "<C-,>": false,
+      "<C-y>": false,
+      "<C-c>": false
     }
   }
 ```
