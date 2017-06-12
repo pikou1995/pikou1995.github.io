@@ -3,6 +3,6 @@
         "No": 11,
         "title": "<p>Javascript权威指南笔记</p>",
         "date": "2016-09-12",
-        "content": "<p>一千页的书，我要啃完！先挖个坑</p><div id=\"markdown\"></div><script>renderMarkdown('#markdown','javascript-the-definitive-guide.md');</script>"
+        "content": "<p>一千页的书，我要啃完！先挖个坑</p><p>2017-06-12记：真是坎坷啊。之前借的那本书看了100页就被要回去了。然后自己下载了电子版的，在手机上慢慢看到400页。由于手机上看实在是不舒服，最近狠心买了本实体书慢慢啃。现在是不知道从何记录笔记，一方面自己太懒了，另一方面是内容太多了。</p><div id=\"markdown\"></div><script>renderMarkdown('#markdown','javascript-the-definitive-guide.md');</script>"
     }
 ]
