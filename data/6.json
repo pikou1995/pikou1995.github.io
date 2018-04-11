@@ -1,6 +1,6 @@
 [
     {
-        "No": 6,
+        "id": 6,
         "title": "使用bootstrap框架重做了首页",
         "date": "7/27/2016",
         "content": "<p style=\"text-decoration: line-through;\">这几天学习了bootstrap框架，开始做一些练习，这个新页面目前是<a href=\"../indexnew.html\">indexnew.html</a>，水平还很low，只有header模仿了一下。</p><p>旧版的删了。反正留着也没什么意义。</p>"

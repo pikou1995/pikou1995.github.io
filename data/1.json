@@ -1,6 +1,6 @@
 [
     {
-        "No": 1,
+        "id": 1,
         "title": "退出ssh死掉的状态",
         "date": "7/20/2016",
         "content": "<p>有时候ssh到服务器，一段时间没操作，或者网络卡了一下，ssh界面就卡住了，怎么^C，^Z都出不去。这个时候很神奇的先按 <span class=\"text-danger\">回车键</span> , 再按下 <span class=\"text-danger\">~.(\"~\"和\".\"两个字符)</span> 就关闭了</p><p>实在不行就找出pid再kill掉吧。。。</p>"

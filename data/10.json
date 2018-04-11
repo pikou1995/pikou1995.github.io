@@ -1,6 +1,6 @@
 [
     {
-        "No": 10,
+        "id": 10,
         "title": "本博客中关于使用markdown插件marked.js",
         "date": "2016-08-22",
         "content": "<p>我现在的模式记录起来十分坑爹，怎么写都觉得别扭和浪费时间。于是想搞个markdown语法插件，这样既好看又方便。于是我选择了<a href=\"https://github.com/chjj/marked\" target=\"_blank\">marked.js</a></p><p>于是我又纠结于怎么把它和我现在的结构结合起来。我先入个门先。。</p><p>引入marked是非常简单的，看github的READEME.md就行了。但是只引入marked.js是没有hightlight(高亮)的，还要配合其他插件。为了在浏览器中使用，我使用了<a href=\"https://github.com/isagalaev/highlight.js\" target=\"_blank\">highlight.js</a></p><p>在这里要感谢<a href=\"http://www.qiniu.com/\" target=\"_blank\">七牛</a>提供的<a href=\"http://www.staticfile.org/\" target=\"_blank\">开放静态文件CDN</a></p><div id=\"marked-highlight\"></div><p>当然这样还是不会有高亮的，还要引入css文件才可以。</p><div id=\"highlight-css\"></div><p>七牛提供的开放静态文件CDN上有很多样式，我现在选择的是atelier-lakeside.light.min.css（未来可能会变更）。本人有选择困难症，太多了选不过来，就随便挑了一个，其他请自行尝试。这样就搞定了。</p><p>我在想是全部用markdown，还是只有在演示代码的时候结合起来用。。。</p><script>renderMarkdown('#marked-highlight','marked-highlight.md');renderMarkdown('#highlight-css','highlight-css.md');</script>"
