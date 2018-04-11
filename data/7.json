@@ -1,6 +1,6 @@
 [
     {
-        "No": 7,
+        "id": 7,
         "title": "bootstrap框架Media Object的一些问题及解决办法",
         "date": "2016-07-29",
         "content": "<p>今天用到Media Object(多媒体对象)的时候，想要让文字溢出部分改成\"...\"，结果怎么搞都不理想。于是Google了一下，在stackoverflow上找到了解决办法。<a href=\"https://stackoverflow.com/questions/28660494/media-list-and-text-overflow-in-bootstrap-3-3-2\" target=\"_blank\">原文地址</a>。</p><p>下面我大致翻译一下：</p><p>从Bootstrap 3.2.x 升级到3.3.2的时候想用text-overflow: ellipsis;在3.2很好，但3.3.2不行，效果如下：</p><p><img class=\"img-responsive\" src=\"../images/7/0.png\"></p><p><img class=\"img-responsive\" src=\"../images/7/1.png\"></p><p><h3>Schmalzy回复:</h3></p><p>貌似是display: table-cell;引起的，源码:</p><p>.media-left,.media-right, .media-body{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;display: table-cell;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;vertical-align: top;</p><p>}</p><p>同时bootstrap因为一些原因，把.media-body设成了10000px。</p><div class=\"panel panel-danger\"><div class=\"panel-heading\"><h3 class=\"panel-title\">解决办法</h3></div><div class=\"panel-body\"></p><p>.media-left,.media-right, .media-body{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;display: block;</p><p></p><p>}</p><p>.media-body{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;width: auto;</p><p>}</div></div>"
