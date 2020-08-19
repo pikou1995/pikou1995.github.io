@@ -73,10 +73,11 @@ var rl = readline.createInterface({
 emitter.on('read_from_console', function () {
     rl.question('title:', function (title) {
         if (title) {
-            titles[titles.length] = {}
-            titles[titles.length - 1].title = html_escape_string(title)
-            titles[titles.length - 1].date = date
-            titles[titles.length - 1].src = titles.length - 1
+            titles.push({
+                date,
+                title: html_escape_string(title),
+                src: titles.length
+            })
             //console.log(titles)
             console.log('please input content,enter "EOF" to finish')
             return
