@@ -2,9 +2,6 @@
   "name": "blog",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "start": "node ./app.js"
-  },
   "dependencies": {},
   "devDependencies": {
     "koa": "^2.13.0",
