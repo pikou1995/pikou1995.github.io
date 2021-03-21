@@ -6,6 +6,7 @@ var proxy = "PROXY 192.168.43.1:10809";
 var rules = [
   "github.com",
   "stackoverflow.com",
+  "pawoo.net",
   "|http:\/\/85.17.73.31\/",
   "||agnesb.fr",
   "||akiba-web.com",
